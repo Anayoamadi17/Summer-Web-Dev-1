@@ -55,7 +55,15 @@
 
         <script>
 
-            const score = JSON.parse(localStorage.getItem('score'));
+            let score = JSON.parse(localStorage.getItem('score'));
+
+            if (score === null) {
+                score = {
+                    wins: 0,
+                    losses: 0,
+                    ties: 0
+                };
+            };
 
             function pickComputerMove() {
                 let randomNumber = Math.round(Math.random()*10);
